@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dappa.Api", "Dappa.Api\Dappa.Api.csproj", "{78C4EBBD-64BF-41A2-B857-8F13B51F07CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dappa.Core", "Dappa.Core\Dappa.Core.csproj", "{F37D1B91-486B-4EA8-BA37-6DF2F8A3332D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78C4EBBD-64BF-41A2-B857-8F13B51F07CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78C4EBBD-64BF-41A2-B857-8F13B51F07CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78C4EBBD-64BF-41A2-B857-8F13B51F07CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78C4EBBD-64BF-41A2-B857-8F13B51F07CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F37D1B91-486B-4EA8-BA37-6DF2F8A3332D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F37D1B91-486B-4EA8-BA37-6DF2F8A3332D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F37D1B91-486B-4EA8-BA37-6DF2F8A3332D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F37D1B91-486B-4EA8-BA37-6DF2F8A3332D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
