@@ -11,8 +11,8 @@ services:
       - "5000:5000"
   api-test:
     depends_on:
-      dappa:
-        condition: service_healthy
+      - dappa
+    #     condition: service_healthy
     build:
       context: .
       dockerfile: ./docker/api-test.Dockerfile

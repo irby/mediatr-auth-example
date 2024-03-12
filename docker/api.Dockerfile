@@ -25,8 +25,6 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0 as runtime
 
 WORKDIR /app
 
-HEALTHCHECK --interval=5s --timeout=10s --retries=10 CMD curl --silent --fail http://locahost/health || exit 1
-
 COPY --from=build-env /app .
 
 ENTRYPOINT [ "dotnet", "Dappa.Api.dll" ]
