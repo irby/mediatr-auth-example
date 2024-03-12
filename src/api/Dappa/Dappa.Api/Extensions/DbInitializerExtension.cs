@@ -27,6 +27,13 @@ public static class DbInitializerExtension
                 Password = "pass",
                 Role = Role.Admin,
             });
+            db.Users.Add(new User
+            {
+                Id = Guid.Parse("8391955b-6796-4623-8392-a30c69ae45ae"),
+                Username = "foo",
+                Password = "bar",
+                Role = Role.User,
+            });
             db.SaveChanges();
         }
         catch (Exception ex)

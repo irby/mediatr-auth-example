@@ -1,3 +1,4 @@
+using Dappa.Core.Exceptions;
 using Dappa.Core.Models.Dtos;
 using Dappa.Core.UnitsOfWork;
 using MediatR;
@@ -16,10 +17,13 @@ public class GetPostQueryHandler : IRequestHandler<GetPostQuery, PostDto>
     
     public async Task<PostDto> Handle(GetPostQuery request, CancellationToken cancellationToken)
     {
-        var post = await _db.Posts.FirstOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
+        var post = await _db.Posts
+            .Include(p => p.User)
+            .FirstOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
+        
         if (post is null)
         {
-            throw new Exception("Post not found");
+            throw new NotFoundException($"Post Id '{request.Id}' not found");
         }
 
         return PostDto.FromPost(post);

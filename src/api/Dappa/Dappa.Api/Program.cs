@@ -14,6 +14,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddTransient<CookieManager>();
+builder.Services.AddHealthChecks();
 
 builder.Services.AddLogging()
     .AddMediatR()
@@ -32,9 +33,11 @@ if (app.Environment.IsDevelopment())
     app.SeedDatabase();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 app.MapControllers();
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapHealthChecks("health");
 
 app.Run();

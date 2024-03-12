@@ -1,3 +1,4 @@
+using Dappa.Api.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -5,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace Dappa.Api.Controllers;
 
 [Produces("application/json")]
+[Route("api/[controller]")]
+[ExceptionFilter]
 [Authorize]
 public abstract class BaseController<T> : ControllerBase where T : BaseController<T>
 {

@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Dappa.Api.Controllers;
 
-[Route("auth")]
 public class AuthController : BaseController<AuthController>
 {
     private readonly CookieManager _cookieManager;
