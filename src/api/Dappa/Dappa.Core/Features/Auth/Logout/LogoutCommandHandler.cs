@@ -14,6 +14,6 @@ public class LogoutCommandHandler : IRequestHandler<LogoutCommand>
     
     public async Task Handle(LogoutCommand request, CancellationToken cancellationToken)
     {
-        _logger.LogDebug($"User {request.GetUserId()} has logged out");
+        _logger.LogDebug($"User {request.ActingUserId} has logged out");
     }
 }

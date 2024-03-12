@@ -19,10 +19,23 @@ public class SecureRequestBehavior<TRequest, TResponse> : IPipelineBehavior<TReq
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
         var userIdentity = _httpContextAccessor.HttpContext?.User?.Identity;
-
-        var user = await _appUnitOfWork.Users.FirstOrDefaultAsync(p => p.Id == Guid.Parse(userIdentity.Name), cancellationToken);
         
-        request.SetUserId(user.Id);
+        // No user identity found
+        if (userIdentity?.Name == null)
+            return await next();
+        
+        request.SetActingIdentity(userIdentity);
+
+        var user = await _appUnitOfWork
+            .Users
+            .AsNoTracking()
+            .FirstOrDefaultAsync(p => p.Id == Guid.Parse(userIdentity.Name), cancellationToken);
+        
+        if (user is null)
+            return await next();
+        
+        request.SetActingUser(user);
+        
         return await next();
     }
 }

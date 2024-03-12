@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Dappa.Core.Features.Posts.Get;
 
-public sealed class GetPostQueryHandler : IRequestHandler<GetPostQuery, PostDto>
+public class GetPostQueryHandler : IRequestHandler<GetPostQuery, PostDto>
 {
     private AppUnitOfWork _db;
     

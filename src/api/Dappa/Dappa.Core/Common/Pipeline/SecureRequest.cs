@@ -1,14 +1,25 @@
-using MediatR;
+using System.Security.Principal;
+using Dappa.Core.Models;
+using Dappa.Core.Models.Enums;
 
 namespace Dappa.Core.Common.Pipeline;
 
-public abstract class SecureRequest : ISecureRequest, IRequest
+public abstract class SecureRequest : ISecureRequest
 {
-    private Guid _userId;
-    public Guid GetUserId() => _userId;
+    public Guid ActingUserId { get; private set; }
 
-    public void SetUserId(Guid userId)
+    public Role ActingUserRole { get; private set; }
+
+    public IIdentity? ActingIdentity { get; private set; }
+
+    public void SetActingUser(User user)
     {
-        _userId = userId;
+        ActingUserId = user.Id;
+        ActingUserRole = user.Role;
+    }
+
+    public void SetActingIdentity(IIdentity identity)
+    {
+        ActingIdentity = identity;
     }
 }

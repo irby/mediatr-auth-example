@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Dappa.Core.Features.Auth.Login;
 
-public sealed class LoginCommandHandler : IRequestHandler<LoginCommand, LoginCommandResponse>
+public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginCommandResponse>
 {
     private readonly ILogger<LoginCommandHandler> _logger;
     private readonly AppUnitOfWork _db;

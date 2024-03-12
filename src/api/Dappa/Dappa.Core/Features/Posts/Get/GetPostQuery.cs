@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Dappa.Core.Features.Posts.Get;
 
-public sealed class GetPostQuery : SecureRequest, IRequest<PostDto>
+public class GetPostQuery : SecureRequest, IRequest<PostDto>
 {
     public Guid Id { get; set; }
 }

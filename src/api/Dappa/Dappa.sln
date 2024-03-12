@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dappa.Api", "Dappa.Api\Dapp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dappa.Core", "Dappa.Core\Dappa.Core.csproj", "{F37D1B91-486B-4EA8-BA37-6DF2F8A3332D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{961FB712-0419-4E46-AFE2-36E5047E43E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dappa.Core.Tests", "Dappa.Core.Tests\Dappa.Core.Tests.csproj", "{D297B54C-C990-4637-890D-21A1D3CF6AAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,12 @@ Global
 		{F37D1B91-486B-4EA8-BA37-6DF2F8A3332D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F37D1B91-486B-4EA8-BA37-6DF2F8A3332D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F37D1B91-486B-4EA8-BA37-6DF2F8A3332D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D297B54C-C990-4637-890D-21A1D3CF6AAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D297B54C-C990-4637-890D-21A1D3CF6AAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D297B54C-C990-4637-890D-21A1D3CF6AAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D297B54C-C990-4637-890D-21A1D3CF6AAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D297B54C-C990-4637-890D-21A1D3CF6AAB} = {961FB712-0419-4E46-AFE2-36E5047E43E9}
 	EndGlobalSection
 EndGlobal

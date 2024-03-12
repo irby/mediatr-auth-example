@@ -1,8 +1,9 @@
+using Dappa.Core.Common.Pipeline;
 using FluentValidation;
 
 namespace Dappa.Core.Features.Posts.Create;
 
-public sealed class CreatePostCommandValidator : AbstractValidator<CreatePostCommand>
+public class CreatePostCommandValidator : SecureRequestValidator<CreatePostCommand>
 {
     public CreatePostCommandValidator()
     {

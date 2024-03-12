@@ -18,6 +18,7 @@ builder.Services.AddTransient<CookieManager>();
 builder.Services.AddLogging()
     .AddMediatR()
     .AddTransient(typeof(IPipelineBehavior<,>), typeof(SecureRequestBehavior<,>))
+    .AddRequestValidation()
     .AddDatabase(Guid.NewGuid())
     .AddJwtValidation();
 

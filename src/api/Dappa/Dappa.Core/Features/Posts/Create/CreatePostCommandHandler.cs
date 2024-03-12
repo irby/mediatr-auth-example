@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Dappa.Core.Features.Posts.Create;
 
-public sealed class CreatePostCommandHandler : IRequestHandler<CreatePostCommand, CreatePostCommandResponse>
+public class CreatePostCommandHandler : IRequestHandler<CreatePostCommand, CreatePostCommandResponse>
 {
     private readonly AppUnitOfWork _db;
     
@@ -18,7 +18,7 @@ public sealed class CreatePostCommandHandler : IRequestHandler<CreatePostCommand
         var post = new Post
         {
             Message = request.Message,
-            UserId = request.GetUserId()
+            UserId = request.ActingUserId
         };
         
         await _db.Posts.AddAsync(post, cancellationToken);

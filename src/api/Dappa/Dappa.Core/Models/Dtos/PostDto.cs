@@ -1,6 +1,6 @@
 namespace Dappa.Core.Models.Dtos;
 
-public sealed class PostDto
+public class PostDto
 {
     public Guid Id { get; set; }
     public string? Message { get; set; }
