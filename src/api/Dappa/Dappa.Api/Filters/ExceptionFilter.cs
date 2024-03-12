@@ -8,10 +8,9 @@ public class ExceptionFilter: ExceptionFilterAttribute
 {
     public override void OnException(ExceptionContext context)
     {
-
-        if (context.Exception.GetType().IsAssignableTo(typeof(RequestException)))
+        var exception = context.Exception as RequestException;
+        if (exception?.Type == RequestException.ClassName)
         {
-            var exception = (RequestException) context.Exception;
             context.Result = new ContentResult
             {
                 StatusCode = exception.HttpCode,
@@ -23,9 +22,4 @@ public class ExceptionFilter: ExceptionFilterAttribute
             context.Result = new StatusCodeResult(StatusCodes.Status500InternalServerError);
         }
     }
-}
-
-public class BadRequestResult
-{
-    public string Message { get; set; }
 }
