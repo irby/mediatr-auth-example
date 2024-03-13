@@ -21,9 +21,9 @@ If you prefer the CLI route, the following instructions will work:
 
 ```bash
 $ cd src/api/Dappa
-$ dotnet build Dappa.sln
-$ dotnet test
-$ dotnet run Dappa.sln --project Dappa.Api
+$ dotnet build # build solution
+$ dotnet test # test solution
+$ dotnet run Dappa.sln --project Dappa.Api # run api
 ```
 
 #### Running API Tests
@@ -37,5 +37,14 @@ $ hurl --variables-file ./tests/api/vars.env --test tests/api/*.hurl
 ### Installation: Docker
 Tools:
 - Docker
+
+#### Running Docker Instances
+
+To run the Docker containers, you can run the following commands from the root directory:
+
+```bash
+$ docker-compose -f ./docker-compose.yaml -f docker/docker-compose.api.yaml up --build -d  # start the API as a detached process
+$ docker-compose -f ./docker-compose.yaml -f docker/docker-compose.test.yaml up --build     # run the Hurl test suite
+```
 
 
