@@ -4,15 +4,15 @@ services:
     env_file:
       - ./docker/local.env
     image: secrets-sharing-app:local
+    networks:
+      - dappa
     build:
       context: .
       dockerfile: ./docker/api.Dockerfile
     ports:
       - "5000:5000"
-  api-test:
-    depends_on:
-      - dappa
-    #     condition: service_healthy
-    build:
-      context: .
-      dockerfile: ./docker/api-test.Dockerfile
+
+networks:
+  dappa:
+    name: dappa
+    external: true
