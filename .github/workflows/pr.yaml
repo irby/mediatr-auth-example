@@ -1,0 +1,42 @@
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  build_api:
+    runs-on: ubuntu-latest
+    name: Build and Test Project
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install dotnet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0
+      - name: Build project
+        working-directory: ./src/api/Dappa
+        run: dotnet build
+      - name: Run unit tests
+        working-directory: ./src/api/Dappa
+        run: dotnet test
+  test_api:
+    runs-on: ubuntu-latest
+    name: Run API tests
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install hurl
+        uses: gacts/install-hurl@v1.0.3
+        with:
+          version: 4.0.0
+      - name: Start API container
+        run: docker-compose -f ./docker-compose.yaml -f docker/docker-compose.api.yaml up --build -d
+      - name: Wait for API to become available
+        uses: cygnetdigital/wait_for_response@v2.0.0
+        with:
+          url: 'http://localhost:5000/health'
+          responseCode: '200'
+          timeout: 2000
+          interval: 500
+      - name: Run API tests
+        run: hurl --variables-file ./tests/api/vars.env --test tests/api/*.hurl
